@@ -31,7 +31,7 @@ const AdminPanel = ({paths}: Props) => {
 
 
 export const getServerSideProps = async () => {
-        const data = await fetch("https://next-pilot-test.vercel.app/api/getPages")
+    const data = await fetch("http://localhost:3000/api/getPages")
     const response = await data.json()
     
 

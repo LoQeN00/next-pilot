@@ -32,8 +32,6 @@ const handler: NextApiHandler = async (
         if (transform.includes(".tsx")) return transform.split(".tsx")[0]
     })
 
-    console.log(transformedPaths)
-
   res.status(200).json({ paths: transformedPaths })
 }
 
