@@ -17,7 +17,7 @@ const AdminPanel = ({paths}: Props) => {
   return (
     <div>
         <h1>AdminPanel</h1>
-        {paths.length && paths.map((path, index) => {
+        {paths && paths.map((path, index) => {
             return (
                 <div key={index} style={{padding: "10px"}}>
                     <p>{path}</p>
@@ -31,21 +31,16 @@ const AdminPanel = ({paths}: Props) => {
 
 
 export const getServerSideProps = async () => {
-
-    try {
         const data = await fetch("https://next-pilot-test.vercel.app/api/getPages")
     const response = await data.json()
-    console.log(response)
+    
 
 
     return {
         props: {paths: response.paths}
     }
-    } catch (e) {
-        return {
-            props: {}
-        }
-    }
+   
+    
     
 }
 
